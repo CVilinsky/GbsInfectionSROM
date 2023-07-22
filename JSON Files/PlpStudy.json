@@ -1,0 +1,958 @@
+{
+  "getPlpDataArgs": {
+    "maxSampleSize": null,
+    "washoutPeriod": 0
+  },
+  "id": 9,
+  "name": "visit_gbs_srom",
+  "version": "v2.7.0",
+  "organizationName": "OHDSI",
+  "packageName": null,
+  "skeletonType": "PatientLevelPredictionStudy",
+  "skeletonVersion": "v0.0.1",
+  "cohortDefinitions": [
+    {
+      "id": 19,
+      "name": "High Body Tempreture",
+      "description": null,
+      "expression": {
+        "cdmVersionRange": ">=5.0.0",
+        "Title": null,
+        "PrimaryCriteria": {
+          "CriteriaList": [
+            {
+              "Measurement": {
+                "CorrelatedCriteria": null,
+                "CodesetId": 3,
+                "First": null,
+                "OccurrenceStartDate": null,
+                "MeasurementType": null,
+                "MeasurementTypeExclude": false,
+                "Operator": null,
+                "ValueAsNumber": {
+                  "Value": 37.8,
+                  "Op": "gte",
+                  "Extent": null
+                },
+                "ValueAsConcept": null,
+                "Unit": null,
+                "RangeLow": null,
+                "RangeHigh": null,
+                "RangeLowRatio": null,
+                "RangeHighRatio": null,
+                "Abnormal": null,
+                "MeasurementSourceConcept": null,
+                "Age": null,
+                "Gender": null,
+                "ProviderSpecialty": null,
+                "VisitType": null
+              }
+            }
+          ],
+          "ObservationWindow": {
+            "PriorDays": 0,
+            "PostDays": 0
+          },
+          "PrimaryCriteriaLimit": {
+            "Type": "First"
+          }
+        },
+        "AdditionalCriteria": null,
+        "ConceptSets": [
+          {
+            "id": 3,
+            "name": "Patient Body Temprature",
+            "expression": {
+              "items": [
+                {
+                  "concept": {
+                    "CONCEPT_ID": 4302666,
+                    "CONCEPT_NAME": "Body temperature",
+                    "STANDARD_CONCEPT": "S",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "INVALID_REASON": "V",
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_CODE": "386725007",
+                    "DOMAIN_ID": "Measurement",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_CLASS_ID": "Observable Entity"
+                  },
+                  "isExcluded": false,
+                  "includeDescendants": false,
+                  "includeMapped": false
+                }
+              ]
+            }
+          }
+        ],
+        "QualifiedLimit": {
+          "Type": "First"
+        },
+        "ExpressionLimit": {
+          "Type": "First"
+        },
+        "InclusionRules": [],
+        "EndStrategy": null,
+        "CensoringCriteria": [],
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        }
+      },
+      "expressionType": "SIMPLE_EXPRESSION",
+      "createdBy": null,
+      "createdDate": null,
+      "modifiedBy": null,
+      "modifiedDate": null
+    },
+    {
+      "id": 29,
+      "name": "New Version SROM tested for GBS not Non Early Labo",
+      "description": null,
+      "expression": {
+        "cdmVersionRange": ">=5.0.0",
+        "Title": null,
+        "PrimaryCriteria": {
+          "CriteriaList": [
+            {
+              "VisitOccurrence": {
+                "CorrelatedCriteria": null,
+                "CodesetId": null,
+                "First": null,
+                "OccurrenceStartDate": null,
+                "OccurrenceEndDate": null,
+                "VisitType": null,
+                "VisitTypeExclude": false,
+                "VisitSourceConcept": null,
+                "VisitLength": null,
+                "Age": null,
+                "Gender": null,
+                "ProviderSpecialty": null,
+                "PlaceOfService": null,
+                "PlaceOfServiceLocation": null
+              }
+            }
+          ],
+          "ObservationWindow": {
+            "PriorDays": 0,
+            "PostDays": 1
+          },
+          "PrimaryCriteriaLimit": {
+            "Type": "First"
+          }
+        },
+        "AdditionalCriteria": null,
+        "ConceptSets": [
+          {
+            "id": 4,
+            "name": "SROM Labor",
+            "expression": {
+              "items": [
+                {
+                  "concept": {
+                    "CONCEPT_ID": 4015143,
+                    "CONCEPT_NAME": "Spontaneous rupture of fetal membranes",
+                    "STANDARD_CONCEPT": "S",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "INVALID_REASON": "V",
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_CODE": "169734005",
+                    "DOMAIN_ID": "Condition",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_CLASS_ID": "Clinical Finding"
+                  },
+                  "isExcluded": false,
+                  "includeDescendants": false,
+                  "includeMapped": false
+                }
+              ]
+            }
+          },
+          {
+            "id": 5,
+            "name": "GBS Test",
+            "expression": {
+              "items": [
+                {
+                  "concept": {
+                    "CONCEPT_ID": 4304821,
+                    "CONCEPT_NAME": "Streptococcus pneumoniae group B antigen assay",
+                    "STANDARD_CONCEPT": "S",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "INVALID_REASON": "V",
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_CODE": "118001005",
+                    "DOMAIN_ID": "Measurement",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_CLASS_ID": "Procedure"
+                  },
+                  "isExcluded": false,
+                  "includeDescendants": false,
+                  "includeMapped": false
+                }
+              ]
+            }
+          },
+          {
+            "id": 7,
+            "name": "Gestational age",
+            "expression": {
+              "items": [
+                {
+                  "concept": {
+                    "CONCEPT_ID": 40485048,
+                    "CONCEPT_NAME": "Estimated fetal gestational age at delivery",
+                    "STANDARD_CONCEPT": "S",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "INVALID_REASON": "V",
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_CODE": "444135009",
+                    "DOMAIN_ID": "Observation",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_CLASS_ID": "Observable Entity"
+                  },
+                  "isExcluded": false,
+                  "includeDescendants": false,
+                  "includeMapped": false
+                }
+              ]
+            }
+          },
+          {
+            "id": 8,
+            "name": "Premature rapture",
+            "expression": {
+              "items": [
+                {
+                  "concept": {
+                    "CONCEPT_ID": 194702,
+                    "CONCEPT_NAME": "Premature rupture of membranes",
+                    "STANDARD_CONCEPT": "S",
+                    "STANDARD_CONCEPT_CAPTION": "Standard",
+                    "INVALID_REASON": "V",
+                    "INVALID_REASON_CAPTION": "Valid",
+                    "CONCEPT_CODE": "44223004",
+                    "DOMAIN_ID": "Condition",
+                    "VOCABULARY_ID": "SNOMED",
+                    "CONCEPT_CLASS_ID": "Clinical Finding"
+                  },
+                  "isExcluded": false,
+                  "includeDescendants": false,
+                  "includeMapped": false
+                }
+              ]
+            }
+          }
+        ],
+        "QualifiedLimit": {
+          "Type": "First"
+        },
+        "ExpressionLimit": {
+          "Type": "All"
+        },
+        "InclusionRules": [
+          {
+            "name": "Tests For GBS",
+            "description": null,
+            "expression": {
+              "Type": "ALL",
+              "Count": null,
+              "CriteriaList": [
+                {
+                  "Criteria": {
+                    "Observation": {
+                      "CorrelatedCriteria": null,
+                      "CodesetId": 5,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ObservationType": null,
+                      "ObservationTypeExclude": false,
+                      "ValueAsNumber": null,
+                      "ValueAsString": null,
+                      "ValueAsConcept": null,
+                      "Qualifier": null,
+                      "Unit": null,
+                      "ObservationSourceConcept": null,
+                      "Age": null,
+                      "Gender": null,
+                      "ProviderSpecialty": null,
+                      "VisitType": null
+                    }
+                  },
+                  "StartWindow": {
+                    "Start": {
+                      "Days": 180,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false,
+                    "UseEventEnd": false
+                  },
+                  "EndWindow": null,
+                  "RestrictVisit": false,
+                  "IgnoreObservationPeriod": false,
+                  "Occurrence": {
+                    "Type": 2,
+                    "Count": 1,
+                    "IsDistinct": false,
+                    "CountColumn": null
+                  }
+                }
+              ],
+              "DemographicCriteriaList": [],
+              "Groups": []
+            }
+          },
+          {
+            "name": "Gestational age - 37 and above",
+            "description": null,
+            "expression": {
+              "Type": "ANY",
+              "Count": null,
+              "CriteriaList": [
+                {
+                  "Criteria": {
+                    "Observation": {
+                      "CorrelatedCriteria": null,
+                      "CodesetId": 7,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ObservationType": null,
+                      "ObservationTypeExclude": false,
+                      "ValueAsNumber": null,
+                      "ValueAsString": {
+                        "Text": "37",
+                        "Op": "startsWith"
+                      },
+                      "ValueAsConcept": null,
+                      "Qualifier": null,
+                      "Unit": null,
+                      "ObservationSourceConcept": null,
+                      "Age": null,
+                      "Gender": null,
+                      "ProviderSpecialty": null,
+                      "VisitType": null
+                    }
+                  },
+                  "StartWindow": {
+                    "Start": {
+                      "Days": 1,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false,
+                    "UseEventEnd": false
+                  },
+                  "EndWindow": null,
+                  "RestrictVisit": false,
+                  "IgnoreObservationPeriod": false,
+                  "Occurrence": {
+                    "Type": 2,
+                    "Count": 1,
+                    "IsDistinct": false,
+                    "CountColumn": "DOMAIN_CONCEPT"
+                  }
+                },
+                {
+                  "Criteria": {
+                    "Observation": {
+                      "CorrelatedCriteria": null,
+                      "CodesetId": 7,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ObservationType": null,
+                      "ObservationTypeExclude": false,
+                      "ValueAsNumber": null,
+                      "ValueAsString": {
+                        "Text": "38",
+                        "Op": "startsWith"
+                      },
+                      "ValueAsConcept": null,
+                      "Qualifier": null,
+                      "Unit": null,
+                      "ObservationSourceConcept": null,
+                      "Age": null,
+                      "Gender": null,
+                      "ProviderSpecialty": null,
+                      "VisitType": null
+                    }
+                  },
+                  "StartWindow": {
+                    "Start": {
+                      "Days": 1,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false,
+                    "UseEventEnd": false
+                  },
+                  "EndWindow": null,
+                  "RestrictVisit": false,
+                  "IgnoreObservationPeriod": false,
+                  "Occurrence": {
+                    "Type": 2,
+                    "Count": 1,
+                    "IsDistinct": false,
+                    "CountColumn": null
+                  }
+                },
+                {
+                  "Criteria": {
+                    "Observation": {
+                      "CorrelatedCriteria": null,
+                      "CodesetId": 7,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ObservationType": null,
+                      "ObservationTypeExclude": false,
+                      "ValueAsNumber": null,
+                      "ValueAsString": {
+                        "Text": "39",
+                        "Op": "startsWith"
+                      },
+                      "ValueAsConcept": null,
+                      "Qualifier": null,
+                      "Unit": null,
+                      "ObservationSourceConcept": null,
+                      "Age": null,
+                      "Gender": null,
+                      "ProviderSpecialty": null,
+                      "VisitType": null
+                    }
+                  },
+                  "StartWindow": {
+                    "Start": {
+                      "Days": 1,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false,
+                    "UseEventEnd": false
+                  },
+                  "EndWindow": null,
+                  "RestrictVisit": false,
+                  "IgnoreObservationPeriod": false,
+                  "Occurrence": {
+                    "Type": 2,
+                    "Count": 1,
+                    "IsDistinct": false,
+                    "CountColumn": null
+                  }
+                },
+                {
+                  "Criteria": {
+                    "Observation": {
+                      "CorrelatedCriteria": null,
+                      "CodesetId": 7,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ObservationType": null,
+                      "ObservationTypeExclude": false,
+                      "ValueAsNumber": null,
+                      "ValueAsString": {
+                        "Text": "40",
+                        "Op": "startsWith"
+                      },
+                      "ValueAsConcept": null,
+                      "Qualifier": null,
+                      "Unit": null,
+                      "ObservationSourceConcept": null,
+                      "Age": null,
+                      "Gender": null,
+                      "ProviderSpecialty": null,
+                      "VisitType": null
+                    }
+                  },
+                  "StartWindow": {
+                    "Start": {
+                      "Days": 1,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false,
+                    "UseEventEnd": false
+                  },
+                  "EndWindow": null,
+                  "RestrictVisit": false,
+                  "IgnoreObservationPeriod": false,
+                  "Occurrence": {
+                    "Type": 2,
+                    "Count": 1,
+                    "IsDistinct": false,
+                    "CountColumn": null
+                  }
+                },
+                {
+                  "Criteria": {
+                    "Observation": {
+                      "CorrelatedCriteria": null,
+                      "CodesetId": 7,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ObservationType": null,
+                      "ObservationTypeExclude": false,
+                      "ValueAsNumber": null,
+                      "ValueAsString": {
+                        "Text": "41",
+                        "Op": "startsWith"
+                      },
+                      "ValueAsConcept": null,
+                      "Qualifier": null,
+                      "Unit": null,
+                      "ObservationSourceConcept": null,
+                      "Age": null,
+                      "Gender": null,
+                      "ProviderSpecialty": null,
+                      "VisitType": null
+                    }
+                  },
+                  "StartWindow": {
+                    "Start": {
+                      "Days": 1,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false,
+                    "UseEventEnd": false
+                  },
+                  "EndWindow": null,
+                  "RestrictVisit": false,
+                  "IgnoreObservationPeriod": false,
+                  "Occurrence": {
+                    "Type": 2,
+                    "Count": 1,
+                    "IsDistinct": false,
+                    "CountColumn": null
+                  }
+                },
+                {
+                  "Criteria": {
+                    "Observation": {
+                      "CorrelatedCriteria": null,
+                      "CodesetId": 7,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ObservationType": null,
+                      "ObservationTypeExclude": false,
+                      "ValueAsNumber": null,
+                      "ValueAsString": {
+                        "Text": "42",
+                        "Op": "startsWith"
+                      },
+                      "ValueAsConcept": null,
+                      "Qualifier": null,
+                      "Unit": null,
+                      "ObservationSourceConcept": null,
+                      "Age": null,
+                      "Gender": null,
+                      "ProviderSpecialty": null,
+                      "VisitType": null
+                    }
+                  },
+                  "StartWindow": {
+                    "Start": {
+                      "Days": 1,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false,
+                    "UseEventEnd": false
+                  },
+                  "EndWindow": null,
+                  "RestrictVisit": false,
+                  "IgnoreObservationPeriod": false,
+                  "Occurrence": {
+                    "Type": 2,
+                    "Count": 1,
+                    "IsDistinct": false,
+                    "CountColumn": null
+                  }
+                },
+                {
+                  "Criteria": {
+                    "Observation": {
+                      "CorrelatedCriteria": null,
+                      "CodesetId": 7,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ObservationType": null,
+                      "ObservationTypeExclude": false,
+                      "ValueAsNumber": null,
+                      "ValueAsString": {
+                        "Text": "43",
+                        "Op": "startsWith"
+                      },
+                      "ValueAsConcept": null,
+                      "Qualifier": null,
+                      "Unit": null,
+                      "ObservationSourceConcept": null,
+                      "Age": null,
+                      "Gender": null,
+                      "ProviderSpecialty": null,
+                      "VisitType": null
+                    }
+                  },
+                  "StartWindow": {
+                    "Start": {
+                      "Days": 1,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false,
+                    "UseEventEnd": false
+                  },
+                  "EndWindow": null,
+                  "RestrictVisit": false,
+                  "IgnoreObservationPeriod": false,
+                  "Occurrence": {
+                    "Type": 2,
+                    "Count": 1,
+                    "IsDistinct": false,
+                    "CountColumn": null
+                  }
+                },
+                {
+                  "Criteria": {
+                    "Observation": {
+                      "CorrelatedCriteria": null,
+                      "CodesetId": 7,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ObservationType": null,
+                      "ObservationTypeExclude": false,
+                      "ValueAsNumber": null,
+                      "ValueAsString": {
+                        "Text": "44",
+                        "Op": "startsWith"
+                      },
+                      "ValueAsConcept": null,
+                      "Qualifier": null,
+                      "Unit": null,
+                      "ObservationSourceConcept": null,
+                      "Age": null,
+                      "Gender": null,
+                      "ProviderSpecialty": null,
+                      "VisitType": null
+                    }
+                  },
+                  "StartWindow": {
+                    "Start": {
+                      "Days": 1,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false,
+                    "UseEventEnd": false
+                  },
+                  "EndWindow": null,
+                  "RestrictVisit": false,
+                  "IgnoreObservationPeriod": false,
+                  "Occurrence": {
+                    "Type": 2,
+                    "Count": 1,
+                    "IsDistinct": false,
+                    "CountColumn": null
+                  }
+                }
+              ],
+              "DemographicCriteriaList": [],
+              "Groups": []
+            }
+          },
+          {
+            "name": "SROM Labor",
+            "description": null,
+            "expression": {
+              "Type": "ALL",
+              "Count": null,
+              "CriteriaList": [
+                {
+                  "Criteria": {
+                    "Observation": {
+                      "CorrelatedCriteria": null,
+                      "CodesetId": 4,
+                      "First": null,
+                      "OccurrenceStartDate": null,
+                      "ObservationType": null,
+                      "ObservationTypeExclude": false,
+                      "ValueAsNumber": null,
+                      "ValueAsString": {
+                        "Text": "SROM",
+                        "Op": "endsWith"
+                      },
+                      "ValueAsConcept": null,
+                      "Qualifier": null,
+                      "Unit": null,
+                      "ObservationSourceConcept": null,
+                      "Age": null,
+                      "Gender": null,
+                      "ProviderSpecialty": null,
+                      "VisitType": null
+                    }
+                  },
+                  "StartWindow": {
+                    "Start": {
+                      "Days": 0,
+                      "Coeff": -1
+                    },
+                    "End": {
+                      "Days": 0,
+                      "Coeff": 1
+                    },
+                    "UseIndexEnd": false,
+                    "UseEventEnd": false
+                  },
+                  "EndWindow": null,
+                  "RestrictVisit": true,
+                  "IgnoreObservationPeriod": false,
+                  "Occurrence": {
+                    "Type": 2,
+                    "Count": 1,
+                    "IsDistinct": false,
+                    "CountColumn": null
+                  }
+                }
+              ],
+              "DemographicCriteriaList": [],
+              "Groups": []
+            }
+          }
+        ],
+        "EndStrategy": null,
+        "CensoringCriteria": [],
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 0
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        }
+      },
+      "expressionType": "SIMPLE_EXPRESSION",
+      "createdBy": null,
+      "createdDate": null,
+      "modifiedBy": null,
+      "modifiedDate": null
+    }
+  ],
+  "conceptSets": [],
+  "conceptSetCrossReference": [],
+  "targetIds": [
+    29
+  ],
+  "outcomeIds": [
+    19
+  ],
+  "covariateSettings": [
+    {
+      "attr_class": "covariateSettings",
+      "temporal": false,
+      "DemographicsGender": true,
+      "DemographicsAge": false,
+      "DemographicsAgeGroup": true,
+      "DemographicsRace": true,
+      "DemographicsEthnicity": true,
+      "DemographicsIndexYear": false,
+      "DemographicsIndexMonth": true,
+      "DemographicsPriorObservationTime": false,
+      "DemographicsPostObservationTime": false,
+      "DemographicsTimeInCohort": false,
+      "DemographicsIndexYearMonth": false,
+      "ConditionOccurrenceAnyTimePrior": false,
+      "ConditionOccurrenceLongTerm": false,
+      "ConditionOccurrenceMediumTerm": false,
+      "ConditionOccurrenceShortTerm": false,
+      "ConditionOccurrencePrimaryInpatientAnyTimePrior": false,
+      "ConditionOccurrencePrimaryInpatientLongTerm": false,
+      "ConditionOccurrencePrimaryInpatientMediumTerm": false,
+      "ConditionOccurrencePrimaryInpatientShortTerm": false,
+      "ConditionEraAnyTimePrior": false,
+      "ConditionEraLongTerm": false,
+      "ConditionEraMediumTerm": false,
+      "ConditionEraShortTerm": false,
+      "ConditionEraOverlapping": false,
+      "ConditionEraStartLongTerm": false,
+      "ConditionEraStartMediumTerm": false,
+      "ConditionEraStartShortTerm": false,
+      "ConditionGroupEraAnyTimePrior": false,
+      "ConditionGroupEraLongTerm": true,
+      "ConditionGroupEraMediumTerm": false,
+      "ConditionGroupEraShortTerm": true,
+      "ConditionGroupEraOverlapping": false,
+      "ConditionGroupEraStartLongTerm": false,
+      "ConditionGroupEraStartMediumTerm": false,
+      "ConditionGroupEraStartShortTerm": false,
+      "DrugExposureAnyTimePrior": false,
+      "DrugExposureLongTerm": false,
+      "DrugExposureMediumTerm": false,
+      "DrugExposureShortTerm": false,
+      "DrugEraAnyTimePrior": false,
+      "DrugEraLongTerm": false,
+      "DrugEraMediumTerm": false,
+      "DrugEraShortTerm": false,
+      "DrugEraOverlapping": false,
+      "DrugEraStartLongTerm": false,
+      "DrugEraStartMediumTerm": false,
+      "DrugEraStartShortTerm": false,
+      "DrugGroupEraAnyTimePrior": false,
+      "DrugGroupEraLongTerm": true,
+      "DrugGroupEraMediumTerm": false,
+      "DrugGroupEraShortTerm": true,
+      "DrugGroupEraOverlapping": true,
+      "DrugGroupEraStartLongTerm": false,
+      "DrugGroupEraStartMediumTerm": false,
+      "DrugGroupEraStartShortTerm": false,
+      "ProcedureOccurrenceAnyTimePrior": false,
+      "ProcedureOccurrenceLongTerm": true,
+      "ProcedureOccurrenceMediumTerm": false,
+      "ProcedureOccurrenceShortTerm": true,
+      "DeviceExposureAnyTimePrior": false,
+      "DeviceExposureLongTerm": true,
+      "DeviceExposureMediumTerm": false,
+      "DeviceExposureShortTerm": true,
+      "MeasurementAnyTimePrior": false,
+      "MeasurementLongTerm": true,
+      "MeasurementMediumTerm": false,
+      "MeasurementShortTerm": true,
+      "MeasurementValueAnyTimePrior": false,
+      "MeasurementValueLongTerm": false,
+      "MeasurementValueMediumTerm": false,
+      "MeasurementValueShortTerm": false,
+      "MeasurementRangeGroupAnyTimePrior": false,
+      "MeasurementRangeGroupLongTerm": true,
+      "MeasurementRangeGroupMediumTerm": false,
+      "MeasurementRangeGroupShortTerm": false,
+      "ObservationAnyTimePrior": false,
+      "ObservationLongTerm": true,
+      "ObservationMediumTerm": false,
+      "ObservationShortTerm": true,
+      "CharlsonIndex": true,
+      "Dcsi": true,
+      "Chads2": true,
+      "Chads2Vasc": true,
+      "DistinctConditionCountLongTerm": false,
+      "DistinctConditionCountMediumTerm": false,
+      "DistinctConditionCountShortTerm": false,
+      "DistinctIngredientCountLongTerm": false,
+      "DistinctIngredientCountMediumTerm": false,
+      "DistinctIngredientCountShortTerm": false,
+      "DistinctProcedureCountLongTerm": false,
+      "DistinctProcedureCountMediumTerm": false,
+      "DistinctProcedureCountShortTerm": false,
+      "DistinctMeasurementCountLongTerm": false,
+      "DistinctMeasurementCountMediumTerm": false,
+      "DistinctMeasurementCountShortTerm": false,
+      "DistinctObservationCountLongTerm": false,
+      "DistinctObservationCountMediumTerm": false,
+      "DistinctObservationCountShortTerm": false,
+      "VisitCountLongTerm": false,
+      "VisitCountMediumTerm": false,
+      "VisitCountShortTerm": false,
+      "VisitConceptCountLongTerm": false,
+      "VisitConceptCountMediumTerm": false,
+      "VisitConceptCountShortTerm": false,
+      "longTermStartDays": -365,
+      "mediumTermStartDays": -180,
+      "shortTermStartDays": -30,
+      "endDays": 0,
+      "includedCovariateConceptIds": [],
+      "addDescendantsToInclude": false,
+      "excludedCovariateConceptIds": [],
+      "addDescendantsToExclude": false,
+      "includedCovariateIds": [],
+      "attr_fun": "getDbDefaultCovariateData"
+    }
+  ],
+  "populationSettings": [
+    {
+      "attr_class": "populationSettings",
+      "binary": true,
+      "includeAllOutcomes": true,
+      "firstExposureOnly": false,
+      "washoutPeriod": 365,
+      "removeSubjectsWithPriorOutcome": false,
+      "priorOutcomeLookback": 99999,
+      "requireTimeAtRisk": true,
+      "minTimeAtRisk": 364,
+      "riskWindowStart": 1,
+      "addExposureDaysToStart": false,
+      "riskWindowEnd": 365,
+      "addExposureDaysToEnd": false
+    }
+  ],
+  "modelSettings": [
+    {
+      "LassoLogisticRegressionSettings": {
+        "seed": null,
+        "variance": 0.01
+      }
+    },
+    {
+      "GradientBoostingMachineSettings": {
+        "seed": null,
+        "nthread": 20,
+        "maxDepth": [
+          4,
+          6,
+          17
+        ],
+        "minRows": [
+          20
+        ],
+        "learnRate": [
+          0.01,
+          0.1
+        ],
+        "ntrees": [
+          10,
+          100
+        ]
+      }
+    },
+    {
+      "KNNSettings": {
+        "k": 1000
+      }
+    }
+  ],
+  "runPlpArgs": {
+    "minCovariateFraction": 0.001,
+    "normalizeData": true,
+    "testSplit": "person",
+    "testFraction": 0.25,
+    "splitSeed": null,
+    "nfold": 5
+  }
+}

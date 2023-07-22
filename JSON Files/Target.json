@@ -1,0 +1,409 @@
+{
+  "ConceptSets": [
+    {
+      "id": 4,
+      "name": "SROM Labor",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "169734005",
+              "CONCEPT_ID": 4015143,
+              "CONCEPT_NAME": "Spontaneous rupture of fetal membranes",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "name": "GBS Test",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "118001005",
+              "CONCEPT_ID": 4304821,
+              "CONCEPT_NAME": "Streptococcus pneumoniae group B antigen assay",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "name": "Gestational age",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Observable Entity",
+              "CONCEPT_CODE": "444135009",
+              "CONCEPT_ID": 40485048,
+              "CONCEPT_NAME": "Estimated fetal gestational age at delivery",
+              "DOMAIN_ID": "Observation",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "name": "Premature rapture",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "44223004",
+              "CONCEPT_ID": 194702,
+              "CONCEPT_NAME": "Premature rupture of membranes",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "PrimaryCriteria": {
+    "CriteriaList": [
+      {
+        "VisitOccurrence": {}
+      }
+    ],
+    "ObservationWindow": {
+      "PriorDays": 0,
+      "PostDays": 1
+    },
+    "PrimaryCriteriaLimit": {
+      "Type": "First"
+    }
+  },
+  "QualifiedLimit": {
+    "Type": "First"
+  },
+  "ExpressionLimit": {
+    "Type": "All"
+  },
+  "InclusionRules": [
+    {
+      "name": "Tests For GBS",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 5
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 180,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "Gestational age - 37 and above",
+      "expression": {
+        "Type": "ANY",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 7,
+                "ValueAsString": {
+                  "Text": "37",
+                  "Op": "startsWith"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1,
+              "CountColumn": "DOMAIN_CONCEPT"
+            }
+          },
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 7,
+                "ValueAsString": {
+                  "Text": "38",
+                  "Op": "startsWith"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 7,
+                "ValueAsString": {
+                  "Text": "39",
+                  "Op": "startsWith"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 7,
+                "ValueAsString": {
+                  "Text": "40",
+                  "Op": "startsWith"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 7,
+                "ValueAsString": {
+                  "Text": "41",
+                  "Op": "startsWith"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 7,
+                "ValueAsString": {
+                  "Text": "42",
+                  "Op": "startsWith"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 7,
+                "ValueAsString": {
+                  "Text": "43",
+                  "Op": "startsWith"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 7,
+                "ValueAsString": {
+                  "Text": "44",
+                  "Op": "startsWith"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 1,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "SROM Labor",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "Observation": {
+                "CodesetId": 4,
+                "ValueAsString": {
+                  "Text": "SROM",
+                  "Op": "endsWith"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "RestrictVisit": true,
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    }
+  ],
+  "CensoringCriteria": [],
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {},
+  "cdmVersionRange": ">=5.0.0"
+}
