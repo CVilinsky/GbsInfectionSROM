@@ -17,7 +17,7 @@ We used Jennas code to create a working PLP model.
 
 How To Run?
 --------------
-To run the package you need to open the plpTest.R file, which contains the updated use of PLP.
+To run the package you need to first open the project: visitGbsSrom.Rproj , then open plpTest.R , which contains the updated use of PLP.
 
 To install the requiered packages use:
 ```
